@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Pour toi, mon amour ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at top, #3b1240 0%, #0c0c1a 55%, #050509 100%);
+            color: #fff;
+            line-height: 1.6;
+        }
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px 16px 40px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+        header p { opacity: 0.85; }
+
+        .card {
+            background: rgba(0,0,0,0.55);
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+        }
+        .card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        /* Audio */
+        .audio-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        audio { width: 100%; }
+
+        .download-link {
+            display: inline-block;
+            margin-top: 4px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.35);
+            text-decoration: none;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+        /* Galerie */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+        }
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* Paroles & lettre */
+        .lyrics, .letter {
+            white-space: pre-line;
+            font-size: 0.98rem;
+        }
+
+        .timeline-item {
+            margin-bottom: 10px;
+            padding-left: 10px;
+            border-left: 2px solid rgba(255,255,255,0.3);
+        }
+        .timeline-item span {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <header>
+        <h1>Pour toi, Aurélie ❤️</h1>
+        <p>Une petite page rien que pour nous deux, à écouter, regarder, et revivre notre histoire.</p>
+    </header>
+
+    <!-- MUSIQUE -->
+    <section class="card">
+        <h2>🎧 Notre chanson</h2>
+        <div class="audio-wrapper">
+            <audio controls>
+                <source src="audio/mon-amour.mp3" type="audio/mpeg">
+                Ton navigateur ne supporte pas la lecture audio.
+            </audio>
+            <a class="download-link" href="audio/mon-amour.mp3" download>
+                ⇩ Télécharger la chanson
+            </a>
+        </div>
+    </section>
+
+    <!-- GALERIE PHOTOS -->
+    <section class="card">
+        <h2>📸 Quelques moments de nous</h2>
+        <div class="gallery">
+            <img src="images/photo1.jpg" alt="Nous deux - souvenir 1">
+            <img src="images/photo2.jpg" alt="Nous deux - souvenir 2">
+            <img src="images/photo3.jpg" alt="Nous deux - souvenir 3">
+            <img src="images/photo4.jpg" alt="Nous deux - souvenir 4">
+            <img src="images/photo5.jpg" alt="Nous deux - souvenir 5">
+            <img src="images/photo6.jpg" alt="Nous deux - souvenir 6">
+            <img src="images/photo7.jpg" alt="Nous deux - souvenir 7">
+        </div>
+    </section>
+
+    <!-- LIGNE DU TEMPS -->
+    <section class="card">
+        <h2>🕰️ Notre histoire</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span>✨ Le début</span>
+                Nous nous sommes trouvés sans même le chercher, comme une évidence qui attendait son moment.
+            </div>
+            <div class="timeline-item">
+                <span>🍽️ Un repas… et tout a changé</span>
+                Un regard, un sourire, et nos deux histoires cabossées se sont rejointes pour n’en écrire qu’une.
+            </div>
+            <div class="timeline-item">
+                <span>❤️ Le coup de foudre</span>
+                Emotionnel, sentimental, physique… tout était là, tout de suite. Comme si on s’était toujours attendus.
+            </div>
+            <div class="timeline-item">
+                <span>🏠 Construire ensemble</span>
+                On a tout quitté, tout réinventé, pour créer une vie qui nous ressemble vraiment.
+            </div>
+            <div class="timeline-item">
+                <span>👨‍👩‍👧‍👦 Notre grande famille</span>
+                Tes filles, mon fils, nos enfants… la promesse d’une maison pleine de rires, d’amour et de projets.
+            </div>
+        </div>
+    </section>
+
+    <!-- PAROLES (à adapter avec ton texte) -->
+    <section class="card">
+        <h2>🎵 Paroles de notre chanson</h2>
+        <div class="lyrics">
+            [Colle ici les paroles complètes que tu as écrites pour la chanson]
+        </div>
+    </section>
+
+    <!-- LETTRE D'AMOUR -->
+    <section class="card">
+        <h2>💌 Une lettre pour toi</h2>
+        <div class="letter">
+            Mon amour,
+
+            Cette page, cette chanson, ces photos… tout ça, c’est juste une petite façon de te dire merci.
+            Merci d’être entrée dans ma vie, de l’avoir retournée pour en faire quelque chose de beau,
+            de vrai, de simple et de profond à la fois.
+
+            Avec toi, je me sens à ma place. Avec toi, je me projette, je rêve, je souris même dans
+            les jours compliqués. Avec toi, j’ai envie de vieillir, de voir nos enfants grandir, de
+            construire une grande famille heureuse.
+
+            Je t’aime plus que ces quelques lignes ne pourront jamais le dire.
+            Merci d’être toi. Merci de nous.
+
+            Pour toujours,
+            [Ton prénom]
+        </div>
+    </section>
+
+    <footer>
+        Fait avec tout mon amour pour toi ❤️
+    </footer>
+</div>
+</body>
+</html>
