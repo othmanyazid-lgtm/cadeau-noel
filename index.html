@@ -8,7 +8,6 @@
   <!-- Police douce -->
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet" />
 
-  <!-- Style global -->
   <style>
     * {
       box-sizing: border-box;
@@ -20,11 +19,11 @@
       font-family: "Quicksand", system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
       min-height: 100vh;
-      color: #fff;
+      color: #3b1f3c;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: radial-gradient(circle at top, #ff9a9e, #1f1c2c);
+      background: radial-gradient(circle at top, #ffe2ec, #f8c4ff);
       overflow-x: hidden;
       position: relative;
     }
@@ -62,7 +61,7 @@
       }
     }
 
-    /* --- Conteneur principal (sous la neige) --- */
+    /* --- Conteneur principal --- */
     .page-wrapper {
       position: relative;
       z-index: 2;
@@ -73,12 +72,11 @@
 
     /* --- Carte principale --- */
     .card {
-      background: rgba(15, 12, 24, 0.92);
+      background: rgba(255, 245, 247, 0.96);
       border-radius: 24px;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
       padding: 24px;
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.9);
     }
 
     h1 {
@@ -86,25 +84,27 @@
       margin-bottom: 12px;
       font-size: 1.9rem;
       letter-spacing: 0.04em;
+      color: #b03060;
     }
 
     h2 {
       font-size: 1.4rem;
       margin: 16px 0 8px;
+      color: #b03060;
     }
 
     p.subtitle {
       text-align: center;
       font-size: 0.95rem;
-      opacity: 0.8;
+      opacity: 0.85;
       margin-bottom: 20px;
     }
 
     /* --- Grille photos --- */
     .photos-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
       margin-bottom: 20px;
     }
 
@@ -112,14 +112,54 @@
       width: 100%;
       border-radius: 16px;
       object-fit: cover;
-      max-height: 220px;
-      border: 2px solid rgba(255, 255, 255, 0.15);
+      max-height: 200px;
+      border: 2px solid rgba(255, 182, 193, 0.7);
+    }
+
+    /* --- Boutons --- */
+    .buttons-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 0 6px;
+    }
+
+    .btn {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 8px 18px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        background 0.12s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff9a9e, #fecfef);
+      color: #3b1f3c;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.9);
+      color: #b03060;
+      border: 1px solid rgba(255, 182, 193, 0.8);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
     }
 
     /* --- Zone audio --- */
     .audio-block {
       margin: 18px 0;
-      text-align: center;
     }
 
     .audio-block p {
@@ -132,11 +172,12 @@
       width: 100%;
       max-width: 100%;
       outline: none;
+      margin-bottom: 8px;
     }
 
     /* --- Paroles --- */
     .lyrics {
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.9);
       border-radius: 16px;
       padding: 16px;
       margin-top: 10px;
@@ -144,6 +185,7 @@
       overflow-y: auto;
       line-height: 1.5;
       font-size: 0.93rem;
+      border: 1px solid rgba(255, 182, 193, 0.8);
     }
 
     .lyrics p {
@@ -151,11 +193,35 @@
       white-space: pre-line;
     }
 
+    /* --- Lettre d'amour --- */
+    .letter {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 18px;
+      padding: 16px 16px 12px;
+      margin-top: 10px;
+      border: 1px dashed rgba(255, 182, 193, 0.9);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .letter-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #b03060;
+    }
+
+    .letter p {
+      margin-bottom: 8px;
+    }
+
     /* --- QR Code --- */
     .qr-section {
       margin-top: 18px;
       padding-top: 12px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(255, 182, 193, 0.7);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -167,6 +233,7 @@
       background: #fff;
       padding: 8px;
       border-radius: 12px;
+      border: 1px solid rgba(255, 182, 193, 0.7);
     }
 
     /* --- Intro plein écran --- */
@@ -174,12 +241,12 @@
       position: fixed;
       inset: 0;
       z-index: 10;
-      background: radial-gradient(circle at top, #ff9a9e, #1f1c2c);
+      background: radial-gradient(circle at top, #ffe2ec, #f8c4ff);
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 20px;
-      animation: introFadeIn 1s ease-out;
+      animation: introFadeIn 0.9s ease-out;
     }
 
     @keyframes introFadeIn {
@@ -195,12 +262,13 @@
 
     .intro-card {
       max-width: 520px;
-      background: rgba(10, 7, 18, 0.9);
+      background: rgba(255, 245, 247, 0.98);
       border-radius: 24px;
       padding: 24px;
       text-align: center;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      color: #3b1f3c;
     }
 
     .intro-heart {
@@ -211,6 +279,7 @@
     .intro-title {
       font-size: 1.6rem;
       margin-bottom: 10px;
+      color: #b03060;
     }
 
     .intro-text {
@@ -219,36 +288,12 @@
       margin-bottom: 18px;
     }
 
-    .btn {
-      display: inline-block;
-      border-radius: 999px;
-      padding: 10px 22px;
-      border: none;
-      cursor: pointer;
-      font-size: 0.98rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      transition: transform 0.12s ease, box-shadow 0.12s ease,
-        background 0.12s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #ff9a9e, #fecfef);
-      color: #3b1f3c;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
-    }
-
     /* --- Écran mot de passe --- */
     #lock-screen {
       position: fixed;
       inset: 0;
       z-index: 9;
-      background: radial-gradient(circle at top, #ff9a9e, #1f1c2c);
+      background: radial-gradient(circle at top, #ffe2ec, #f8c4ff);
       display: none;
       justify-content: center;
       align-items: center;
@@ -257,21 +302,23 @@
 
     .lock-card {
       max-width: 420px;
-      background: rgba(10, 7, 18, 0.94);
+      background: rgba(255, 245, 247, 0.98);
       border-radius: 22px;
       padding: 22px;
       text-align: center;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      color: #3b1f3c;
     }
 
     .lock-card h2 {
       margin-bottom: 12px;
+      color: #b03060;
     }
 
     .lock-card p {
       font-size: 0.9rem;
-      opacity: 0.85;
+      opacity: 0.9;
       margin-bottom: 16px;
     }
 
@@ -279,21 +326,21 @@
       width: 100%;
       padding: 10px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      background: rgba(255, 255, 255, 0.08);
-      color: #fff;
+      border: 1px solid rgba(255, 182, 193, 0.9);
+      background: rgba(255, 255, 255, 0.95);
+      color: #3b1f3c;
       font-size: 0.95rem;
       outline: none;
       margin-bottom: 10px;
     }
 
     .lock-card input::placeholder {
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(180, 120, 140, 0.9);
     }
 
     .lock-error {
       font-size: 0.85rem;
-      color: #ff9a9e;
+      color: #c02f56;
       min-height: 18px;
       margin-bottom: 6px;
     }
@@ -315,6 +362,10 @@
       .intro-card,
       .lock-card {
         padding: 18px;
+      }
+      .buttons-row {
+        flex-direction: column;
+        align-items: stretch;
       }
     }
   </style>
@@ -368,21 +419,34 @@
         Une chanson, des souvenirs, et tout l’amour que j’ai pour toi.
       </p>
 
-      <!-- Photos de vous deux / famille -->
+      <!-- 7 photos -->
       <div class="photos-grid">
         <!-- Adapte les chemins d’images à tes fichiers réels -->
-        <img src="images/photo1.jpg" alt="Nous deux" />
-        <img src="images/photo2.jpg" alt="Un beau souvenir" />
-        <img src="images/photo3.jpg" alt="Notre famille" />
+        <img src="images/photo1.jpg" alt="Nous deux 1" />
+        <img src="images/photo2.jpg" alt="Nous deux 2" />
+        <img src="images/photo3.jpg" alt="Nous deux 3" />
+        <img src="images/photo4.jpg" alt="Moment précieux 1" />
+        <img src="images/photo5.jpg" alt="Moment précieux 2" />
+        <img src="images/photo6.jpg" alt="Notre famille 1" />
+        <img src="images/photo7.jpg" alt="Notre famille 2" />
       </div>
 
-      <!-- Audio -->
+      <!-- Audio + téléchargement -->
       <div class="audio-block">
         <p>🎧 Clique sur lecture pour (ré)écouter notre chanson :</p>
         <audio id="song" controls>
           <source src="audio/mon-amour.mp3?v=2" type="audio/mpeg" />
           Ton navigateur ne supporte pas l’élément audio.
         </audio>
+        <div class="buttons-row">
+          <a
+            href="audio/mon-amour.mp3?v=2"
+            download="Quand-nos-mondes-se-touchent.mp3"
+            class="btn btn-secondary"
+          >
+            ⬇️ Télécharger la chanson
+          </a>
+        </div>
       </div>
 
       <!-- Paroles -->
@@ -471,6 +535,40 @@ se touchent à chaque fois.
         </p>
       </div>
 
+      <!-- Lettre d'amour -->
+      <h2>Lettre d’amour</h2>
+      <div class="letter">
+        <div class="letter-header">
+          <span>📜</span><span>À toi, à nous…</span>
+        </div>
+        <p>
+          Depuis le jour où nos chemins se sont croisés, quelque chose a changé
+          en moi. J’avais l’impression d’avoir déjà tout vécu, d’être un peu
+          usé par les histoires d’avant… et puis il y a eu toi.
+        </p>
+        <p>
+          Avec toi, j’ai retrouvé la couleur, la douceur, la confiance. Ton
+          regard, ton rire, ta force, ta fragilité aussi… tout en toi me touche
+          et me donne envie d’être un meilleur homme chaque jour.
+        </p>
+        <p>
+          J’aime la femme que tu es, j’aime la mère que tu es, j’aime la façon
+          dont nos enfants, nos histoires, nos vies se mélangent pour créer
+          quelque chose d’unique. Ce que l’on construit ensemble me donne envie
+          d’avancer, de vieillir avec toi, de partager encore mille souvenirs,
+          des fous rires, et même les tempêtes qui viendront, tant que c’est
+          avec toi.
+        </p>
+        <p>
+          Tu es mon évidence, mon apaisement et mon feu. Merci de m’aimer comme
+          tu le fais, de me laisser t’aimer comme je n’ai jamais aimé.
+        </p>
+        <p>
+          Je t’aime, aujourd’hui, demain, et dans tous les mondes où nos cœurs
+          se toucheront. 💞
+        </p>
+      </div>
+
       <!-- QR Code -->
       <div class="qr-section">
         <p>📱 Tu peux scanner ce QR Code pour retrouver cette page facilement :</p>
@@ -509,11 +607,10 @@ se touchent à chaque fois.
     const lockError = document.getElementById("lock-error");
     const song = document.getElementById("song");
 
-    // À personnaliser si tu veux changer le mot de passe :
-    const SECRET_PASSWORD = "lima"; // insensible à la casse
+    // Mot de passe : AOFAE (insensible à la casse)
+    const SECRET_PASSWORD = "AOFAE";
 
     introButton.addEventListener("click", () => {
-      // On cache l'intro et on affiche l'écran de mot de passe
       intro.style.display = "none";
       lockScreen.style.display = "flex";
       setTimeout(() => passwordInput.focus(), 200);
@@ -521,9 +618,9 @@ se touchent à chaque fois.
 
     passwordForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const value = (passwordInput.value || "").trim().toLowerCase();
+      const value = (passwordInput.value || "").trim().toUpperCase();
 
-      if (value === SECRET_PASSWORD.toLowerCase()) {
+      if (value === SECRET_PASSWORD.toUpperCase()) {
         lockError.textContent = "";
         lockScreen.style.display = "none";
         pageContent.style.display = "block";
@@ -532,7 +629,7 @@ se touchent à chaque fois.
         if (song) {
           song.currentTime = 0;
           song.play().catch(() => {
-            // Si le navigateur bloque, ce n'est pas grave : elle pourra cliquer sur "lecture"
+            // Si le navigateur bloque, elle pourra cliquer sur "lecture"
           });
         }
 
@@ -547,7 +644,7 @@ se touchent à chaque fois.
           });
         }
       } else {
-        lockError.textContent = "Petit indice : c'est ton prénom ❤️";
+        lockError.textContent = "Mot de passe incorrect 💕";
       }
     });
 
