@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pour toi, mon amour</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg1: #ffe0f1;
+      --bg2: #ffc4e2;
+      --txt: #4b1f33;
+      --accent: #ff6fae;
+      --accent-soft: #ff9fc6;
+      --button-gradient: linear-gradient(135deg, #ff7ab3, #ffb3d5);
+      --shadow-soft: 0 24px 60px rgba(255, 105, 180, 0.35);
+      --radius-xl: 26px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at top left, #ffeaf7 0, #ffc4e2 40%, #ffb3d9 70%, #ff9ad0 100%);
+      color: var(--txt);
+      overflow: hidden;
+    }
+
+    .accueil-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1100px;
+      padding: 40px 24px;
+    }
+
+    .accueil-card {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 32px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.55));
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(18px);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      z-index: 2;
+    }
+
+    .intro-label {
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #b5527c;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .intro-heart {
+      font-size: 18px;
+      animation: heartBeat 1.3s infinite;
+      transform-origin: center;
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      30% { transform: scale(1.18); }
+      60% { transform: scale(0.92); }
+    }
+
+    h1 {
+      font-size: clamp(32px, 4vw, 40px);
+      line-height: 1.2;
+      margin-top: 6px;
+      margin-bottom: 4px;
+    }
+
+    .intro-text {
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 620px;
+      color: #5b2440;
+    }
+
+    .cta-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cta-button {
+      border: none;
+      outline: none;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 600;
+      background-image: var(--button-gradient);
+      color: #fff;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      text-decoration: none;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-1px) scale(1.03);
+      box-shadow: 0 30px 70px rgba(255, 105, 180, 0.45);
+    }
+
+    .cta-button span.emoji {
+      font-size: 18px;
+    }
+
+    .note {
+      font-size: 13px;
+      color: #7a3a57;
+    }
+
+    .floating-heart {
+      position: absolute;
+      right: 40px;
+      bottom: 30px;
+      font-size: 40px;
+      animation: floatHeart 7s ease-in-out infinite;
+      z-index: 4;
+      filter: drop-shadow(0 10px 30px rgba(255, 87, 160, 0.55));
+    }
+
+    @keyframes floatHeart {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+      25% { transform: translate(-10px, -20px) scale(1.08); opacity: 1; }
+      50% { transform: translate(6px, -40px) scale(1); opacity: 0.9; }
+      75% { transform: translate(-4px, -22px) scale(1.05); opacity: 1; }
+      100% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+    }
+
+    /* Neige avant-plan */
+    #snow-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    @media (max-width: 700px) {
+      .accueil-card {
+        padding: 26px 20px 30px;
+      }
+      .floating-heart {
+        right: 16px;
+        bottom: 16px;
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="snow-canvas"></canvas>
+
+  <div class="accueil-wrapper">
+    <div class="accueil-card">
+      <div class="intro-label">
+        <span class="intro-heart">💖</span>
+        <span>Pour toi, mon amour</span>
+      </div>
+      <h1>Ceci est un cadeau un peu spécial…</h1>
+      <p class="intro-text">
+        Une page créée juste pour nous, pour raconter notre histoire, ta chanson,  
+        et tout l’amour que je ressens pour toi.  
+        Clique sur le bouton ci-dessous pour la découvrir. 💌
+      </p>
+
+      <div class="cta-row">
+        <a href="index.html" class="cta-button">
+          <span class="emoji">✨</span>
+          <span>Découvrir notre histoire</span>
+        </a>
+        <span class="note">Tu auras juste un petit code secret à entrer : rien que pour nous. 🔐</span>
+      </div>
+    </div>
+
+    <div class="floating-heart">💘</div>
+  </div>
+
+  <script>
+    // Neige avant-plan
+    const canvas = document.getElementById('snow-canvas');
+    const ctx = canvas.getContext('2d');
+    let flakes = [];
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    for (let i = 0; i < 180; i++) {
+      flakes.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2.3 + 0.7,
+        d: Math.random() * 1 + 0.5
+      });
+    }
+
+    function drawSnow() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'rgba(255,255,255,0.9)';
+      ctx.beginPath();
+      for (let i = 0; i < flakes.length; i++) {
+        const f = flakes[i];
+        ctx.moveTo(f.x, f.y);
+        ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
+      }
+      ctx.fill();
+      updateSnow();
+      requestAnimationFrame(drawSnow);
+    }
+
+    let angle = 0;
+    function updateSnow() {
+      angle += 0.0015;
+      for (let i = 0; i < flakes.length; i++) {
+        const f = flakes[i];
+        f.y += Math.cos(angle + f.d) + 0.4 + f.d * 0.8;
+        f.x += Math.sin(angle) * 0.3;
+
+        if (f.y > canvas.height) {
+          flakes[i] = {
+            x: Math.random() * canvas.width,
+            y: -5,
+            r: f.r,
+            d: f.d
+          };
+        }
+      }
+    }
+    drawSnow();
+  </script>
+</body>
+</html>
