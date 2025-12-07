@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Pour toi, mon amour</title>
+  <title>Notre histoire – Cadeau</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -20,15 +20,15 @@
       overflow-x: hidden;
     }
 
-    /* --- Neige en premier plan --- */
+    /* Neige en premier plan */
     #snow-canvas {
       position: fixed;
       inset: 0;
       pointer-events: none;
-      z-index: 9998; /* au-dessus de tout le contenu */
+      z-index: 9998;
     }
 
-    /* --- Overlay mot de passe --- */
+    /* Overlay mot de passe */
     .password-overlay {
       position: fixed;
       inset: 0;
@@ -94,84 +94,33 @@
       min-height: 1.2em;
     }
 
-    /* --- Page d’accueil (hero) --- */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 24px;
-      position: relative;
-    }
-
-    .hero-inner {
-      max-width: 900px;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-    }
-
-    .hero-text {
-      flex: 1.5;
-    }
-
-    .hero-emoji-left {
-      font-size: 1.6rem;
-      margin-bottom: 6px;
-    }
-
-    .hero-title {
-      font-size: 1.7rem;
-      margin-bottom: 6px;
-      font-weight: 600;
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      line-height: 1.6;
-      max-width: 620px;
-    }
-
-    .hero-button {
-      margin-top: 18px;
-    }
-
-    .hero-button button {
-      background: linear-gradient(135deg, #ff8fb5, #ff6c9f);
-      border: none;
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 999px;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 10px 22px rgba(255, 102, 153, 0.55);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .hero-button button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(255, 102, 153, 0.65);
-    }
-
-    .hero-emoji-right {
-      flex: 0.5;
-      text-align: right;
+    /* Coeur animé */
+    .floating-heart {
+      position: fixed;
+      right: 26px;
+      bottom: 40px;
       font-size: 2.3rem;
+      z-index: 9999;
+      animation: floatHeart 4s ease-in-out infinite;
+      pointer-events: none;
     }
 
-    @media (max-width: 768px) {
-      .hero-inner {
-        flex-direction: column;
-        align-items: flex-start;
+    @keyframes floatHeart {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.9;
       }
-      .hero-emoji-right {
-        align-self: flex-end;
+      50% {
+        transform: translateY(-18px) scale(1.08);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.9;
       }
     }
 
-    /* --- Contenu principal --- */
+    /* Contenu principal */
     .main-wrapper {
       padding: 40px 16px 60px;
       display: flex;
@@ -193,8 +142,8 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.7), transparent 60%),
-                  radial-gradient(circle at bottom right, rgba(255, 191, 216, 0.5), transparent 55%);
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.4), transparent 60%),
+                  radial-gradient(circle at bottom right, rgba(255, 191, 216, 0.35), transparent 55%);
       opacity: 0.9;
       z-index: 0;
     }
@@ -204,7 +153,7 @@
       z-index: 1;
     }
 
-    /* --- Titre principal avec halo lumineux --- */
+    /* Titre principal avec halo lumineux */
     .main-title {
       font-size: 1.6rem;
       text-align: center;
@@ -234,71 +183,10 @@
       margin-bottom: 22px;
     }
 
-    /* --- Audio --- */
-    .audio-section {
-      margin-bottom: 20px;
-    }
-
-    .audio-label {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-      font-size: 0.97rem;
-    }
-
-    .audio-label span {
-      font-size: 1.2rem;
-    }
-
-    audio {
-      width: 100%;
-      border-radius: 999px;
-      background-color: #f9dde9;
-    }
-
-    .download-btn {
-      margin-top: 10px;
-    }
-
-    .download-btn a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      background: linear-gradient(135deg, #ff8fb5, #ff6c9f);
-      color: #fff;
-      padding: 9px 18px;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      box-shadow: 0 8px 18px rgba(255, 102, 153, 0.55);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .download-btn a:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(255, 102, 153, 0.65);
-    }
-
-    /* --- Blocs de texte --- */
-    .section-title {
-      font-size: 1.2rem;
-      margin: 22px 0 8px;
-    }
-
-    .text-box {
-      background: #fff;
-      border-radius: 16px;
-      padding: 14px 16px;
-      border: 1px dashed #ffb2ca;
-      font-size: 0.96rem;
-      line-height: 1.7;
-      white-space: pre-line;
-    }
-
-    /* --- Galerie photos 3 / 3 / 1 --- */
+    /* Galerie photos 3 / 3 / 1 juste sous le titre */
     .photos-section {
-      margin-top: 26px;
+      margin-top: 4px;
+      margin-bottom: 24px;
     }
 
     .photos-title {
@@ -363,7 +251,69 @@
       }
     }
 
-    /* --- QR Code centré --- */
+    /* Audio */
+    .audio-section {
+      margin-bottom: 20px;
+    }
+
+    .audio-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 0.97rem;
+    }
+
+    .audio-label span {
+      font-size: 1.2rem;
+    }
+
+    audio {
+      width: 100%;
+      border-radius: 999px;
+      background-color: #f9dde9;
+    }
+
+    .download-btn {
+      margin-top: 10px;
+    }
+
+    .download-btn a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      background: linear-gradient(135deg, #ff8fb5, #ff6c9f);
+      color: #fff;
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      box-shadow: 0 8px 18px rgba(255, 102, 153, 0.55);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .download-btn a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(255, 102, 153, 0.65);
+    }
+
+    /* Sections texte – pas de gros blocs blancs opaques */
+    .section-title {
+      font-size: 1.2rem;
+      margin: 22px 0 8px;
+    }
+
+    .text-box {
+      border-radius: 16px;
+      padding: 14px 16px;
+      border: 1px dashed #ffb2ca;
+      font-size: 0.96rem;
+      line-height: 1.7;
+      white-space: pre-line;
+      background: rgba(255, 248, 252, 0.7); /* léger rose transparent */
+    }
+
+    /* QR Code centré */
     .qr-section {
       margin-top: 26px;
       display: flex;
@@ -387,32 +337,6 @@
       font-size: 0.98rem;
     }
 
-    /* --- Petit coeur animé --- */
-    .floating-heart {
-      position: fixed;
-      right: 26px;
-      bottom: 40px;
-      font-size: 2.3rem;
-      z-index: 9999; /* au-dessus de la neige */
-      animation: floatHeart 4s ease-in-out infinite;
-      pointer-events: none;
-    }
-
-    @keyframes floatHeart {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 0.9;
-      }
-      50% {
-        transform: translateY(-18px) scale(1.08);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(0) scale(1);
-        opacity: 0.9;
-      }
-    }
-
     footer {
       text-align: center;
       font-size: 0.8rem;
@@ -422,13 +346,13 @@
   </style>
 </head>
 <body>
-  <!-- Neige en premier plan -->
+  <!-- Neige -->
   <canvas id="snow-canvas"></canvas>
 
   <!-- Coeur animé -->
   <div class="floating-heart">💖</div>
 
-  <!-- Overlay mot de passe -->
+  <!-- Mot de passe -->
   <div class="password-overlay" id="passwordOverlay">
     <div class="password-box">
       <h2>✨ Cadeau secret ✨</h2>
@@ -439,32 +363,32 @@
     </div>
   </div>
 
-  <!-- Section d’accueil -->
-  <section class="hero" id="top">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <div class="hero-emoji-left">💖</div>
-        <div class="hero-title">Pour toi, mon amour</div>
-        <div class="hero-subtitle">
-          Ceci est un cadeau un peu spécial… Une page créée juste pour nous,
-          pour raconter notre histoire, notre chanson, et tout l’amour que je ressens pour toi.
-        </div>
-        <div class="hero-button">
-          <button id="discoverButton">Découvrir notre histoire</button>
-        </div>
-      </div>
-      <div class="hero-emoji-right">
-        💘
-      </div>
-    </div>
-  </section>
-
   <!-- Contenu principal -->
   <div class="main-wrapper" id="mainContent">
     <div class="card">
       <div class="card-content">
         <h1 class="main-title">Quand nos mondes se touchent 💫</h1>
         <p class="main-subtitle">Notre chanson, nos mots, nos souvenirs… juste pour nous deux.</p>
+
+        <!-- Photos AU DÉBUT de la page -->
+        <div class="photos-section">
+          <h2 class="photos-title">Nos souvenirs 📸</h2>
+          <div class="photos-grid">
+            <div class="photos-row row-1">
+              <img src="images/photo1.jpg" alt="Souvenir 1" />
+              <img src="images/photo2.jpg" alt="Souvenir 2" />
+              <img src="images/photo3.jpg" alt="Souvenir 3" />
+            </div>
+            <div class="photos-row row-2">
+              <img src="images/photo4.jpg" alt="Souvenir 4" />
+              <img src="images/photo5.jpg" alt="Souvenir 5" />
+              <img src="images/photo6.jpg" alt="Souvenir 6" />
+            </div>
+            <div class="photos-row row-3">
+              <img src="images/photo7.jpg" alt="Souvenir 7" />
+            </div>
+          </div>
+        </div>
 
         <!-- Audio -->
         <div class="audio-section">
@@ -560,7 +484,7 @@ nos mondes
 se touchent à chaque fois. 🎶
         </div>
 
-        <!-- Lettre d’amour -->
+        <!-- Lettre d’amour (nouvelle version conservée) -->
         <h2 class="section-title">Lettre d’amour</h2>
         <div class="text-box" id="loveLetterBox">
 Mon amour,
@@ -585,26 +509,6 @@ Je t’aime plus que ces mots, plus que cette page, plus que cette chanson.
 Je t’aime aujourd’hui, demain, et pour longtemps.
 
 Ton amoureux. ❤️
-        </div>
-
-        <!-- Galerie photos 3 / 3 / 1 -->
-        <div class="photos-section">
-          <h2 class="photos-title">Nos souvenirs 📸</h2>
-          <div class="photos-grid">
-            <div class="photos-row row-1">
-              <img src="images/Snapchat-156485319.jpg" alt="Souvenir 1" />
-              <img src="images/Snapchat-348847197.jpg" alt="Souvenir 2" />
-              <img src="images/Snapchat-554559755.jpg" alt="Souvenir 3" />
-            </div>
-            <div class="photos-row row-2">
-              <img src="images/Snapchat-755047960.jpg" alt="Souvenir 4" />
-              <img src="images/Snapchat-1073330687.jpg" alt="Souvenir 5" />
-              <img src="images/Snapchat-1719802065.jpg" alt="Souvenir 6" />
-            </div>
-            <div class="photos-row row-3">
-              <img src="images/Snapchat-1751297035.jpg" alt="Souvenir 7" />
-            </div>
-          </div>
         </div>
 
         <!-- QR Code centré -->
@@ -645,11 +549,6 @@ Ton amoureux. ❤️
       });
     })();
 
-    // Scroll vers le contenu principal
-    document.getElementById("discoverButton").addEventListener("click", function () {
-      document.getElementById("mainContent").scrollIntoView({ behavior: "smooth" });
-    });
-
     // Autoplay après première interaction
     (function () {
       const audio = document.getElementById("audioPlayer");
@@ -665,7 +564,7 @@ Ton amoureux. ❤️
       document.addEventListener("click", tryPlay);
     })();
 
-    // Neige en premier plan (canvas)
+    // Neige
     (function () {
       const canvas = document.getElementById("snow-canvas");
       const ctx = canvas.getContext("2d");
