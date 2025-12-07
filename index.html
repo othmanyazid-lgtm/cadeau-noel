@@ -9,13 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg1: #ffe0f1;
-      --bg2: #ffc4e2;
-      --txt: #4b1f33;
-      --accent: #ff6fae;
-      --accent-soft: #ff9fc6;
-      --button-gradient: linear-gradient(135deg, #ff7ab3, #ffb3d5);
-      --shadow-soft: 0 24px 60px rgba(255, 105, 180, 0.35);
+      /* Palette plus adulte & romantique */
+      --bg1: #fbe7e6;
+      --bg2: #e7c2c8;
+      --txt: #4a2438;
+      --accent: #c85f7a;
+      --accent-soft: #e59aa9;
+      --button-gradient: linear-gradient(135deg, #c85f7a, #e59aa9);
+      --shadow-soft: 0 24px 60px rgba(143, 63, 90, 0.35);
       --radius-xl: 26px;
     }
 
@@ -28,7 +29,8 @@
     body {
       font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       min-height: 100vh;
-      background: radial-gradient(circle at top left, #ffeaf7 0, #ffc4e2 40%, #ffb3d9 70%, #ff9ad0 100%);
+      /* fond plus doux et mature */
+      background: radial-gradient(circle at top left, var(--bg1) 0, var(--bg2) 40%, #d29aa7 70%, #c0798c 100%);
       color: var(--txt);
       display: flex;
       justify-content: center;
@@ -46,7 +48,7 @@
     }
 
     .card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+      background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,255,255,0.85));
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow-soft);
       backdrop-filter: blur(18px);
@@ -67,8 +69,8 @@
       display: inline-block;
       padding: 8px 26px;
       border-radius: 999px;
-      background: radial-gradient(circle at top, rgba(255,255,255,0.95), rgba(255,194,218,0.9));
-      box-shadow: 0 0 30px rgba(255, 120, 180, 0.55);
+      background: radial-gradient(circle at top, rgba(255,255,255,0.98), rgba(245,220,225,0.95));
+      box-shadow: 0 0 30px rgba(200, 95, 122, 0.45);
     }
 
     /* halo lumineux */
@@ -77,7 +79,7 @@
       position: absolute;
       inset: -12px;
       border-radius: inherit;
-      background: radial-gradient(circle, rgba(255,182,213,0.8), transparent 70%);
+      background: radial-gradient(circle, rgba(229,154,169,0.75), transparent 70%);
       opacity: 0.7;
       filter: blur(10px);
       z-index: -1;
@@ -91,10 +93,9 @@
 
     .subtitle {
       font-size: 15px;
-      color: #7a3a57;
+      color: #6b3a4f;
     }
 
-    /* Bouton "Découvrir notre histoire" en haut de la page principale */
     .top-cta {
       margin-top: 18px;
       display: flex;
@@ -121,7 +122,7 @@
 
     .cta-button:hover {
       transform: translateY(-1px) scale(1.03);
-      box-shadow: 0 30px 70px rgba(255, 105, 180, 0.45);
+      box-shadow: 0 30px 70px rgba(143, 63, 90, 0.45);
     }
 
     .cta-button span.emoji {
@@ -151,7 +152,7 @@
       border-radius: 24px;
       overflow: hidden;
       box-shadow: 0 18px 45px rgba(0,0,0,0.15);
-      background: #f9d4e7;
+      background: #f2d6dc;
     }
 
     .photo-card img {
@@ -213,8 +214,8 @@
 
     .texte-content {
       border-radius: 18px;
-      border: 1px dashed rgba(255, 120, 170, 0.45);
-      background: rgba(255,255,255,0.9);
+      border: 1px dashed rgba(200, 95, 122, 0.45);
+      background: rgba(255,255,255,0.96);
       padding: 14px 16px;
       font-size: 14px;
       line-height: 1.7;
@@ -242,7 +243,7 @@
     .qr-caption {
       font-size: 14px;
       text-align: center;
-      color: #6b3150;
+      color: #5f3045;
     }
 
     /* Neige avant-plan */
@@ -263,7 +264,7 @@
       font-size: 40px;
       animation: floatHeart 7s ease-in-out infinite;
       z-index: 4;
-      filter: drop-shadow(0 10px 30px rgba(255, 87, 160, 0.55));
+      filter: drop-shadow(0 10px 30px rgba(200, 95, 122, 0.55));
     }
 
     @keyframes floatHeart {
@@ -278,7 +279,7 @@
     .password-overlay {
       position: fixed;
       inset: 0;
-      background: radial-gradient(circle at top, rgba(255,235,248,0.97), rgba(255,179,214,0.96));
+      background: radial-gradient(circle at top, rgba(251,231,230,0.97), rgba(214,151,165,0.96));
       display: flex;
       justify-content: center;
       align-items: center;
@@ -286,7 +287,7 @@
     }
 
     .password-card {
-      background: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.96);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow-soft);
       padding: 28px 24px 26px;
@@ -303,14 +304,14 @@
     .password-card p {
       font-size: 14px;
       margin-bottom: 18px;
-      color: #7a3a57;
+      color: #6b3a4f;
     }
 
     .password-card input {
       width: 100%;
       padding: 10px 12px;
       border-radius: 999px;
-      border: 1px solid #ffc0dd;
+      border: 1px solid #e1b4c0;
       outline: none;
       font-size: 14px;
       text-align: center;
@@ -333,7 +334,7 @@
     .password-error {
       margin-top: 10px;
       font-size: 13px;
-      color: #d02555;
+      color: #b0264f;
       min-height: 18px;
     }
 
@@ -509,45 +510,26 @@ se touchent à chaque fois. 🎶
         <div class="texte-content">
 Mon amour,
 
-Quand nos chemins se sont croisés, aucun de nous deux n’était vraiment prêt pour une nouvelle histoire.  
-On sortait de relations compliquées, on portait encore des traces, des doutes, des peurs.  
-Et pourtant, malgré tout ça, quelque chose en nous a accepté de s’ouvrir à nouveau.
+Je repense souvent à la façon dont tout a commencé entre nous. On ne s’attendait à rien, on ne cherchait rien… et pourtant, nos chemins se sont croisés comme si la vie avait décidé que c’était enfin notre moment. Deux cœurs un peu abîmés, un peu fatigués, qui n’avaient plus vraiment confiance en l’amour, et qui pourtant se sont reconnus tout de suite.
 
-Avec toi, j’ai découvert un amour différent.  
-Un amour qui ne joue pas, qui ne ment pas, qui ne promet pas pour rien.  
-Un amour qui rassure, qui apaise et qui redonne envie de construire.  
-Ton sourire, ta voix, ta façon de me regarder… tout ça a rallumé une lumière que je croyais éteinte en moi.
+Avec toi, tout a changé. Ton sourire, ton regard, ta façon de me parler, de me comprendre sans que j’aie besoin de tout expliquer… Tu as rallumé en moi quelque chose que je croyais éteint. Tu m’as redonné envie d’aimer, d’y croire, de construire. À tes côtés, je n’ai plus l’impression de me battre contre la vie, mais de marcher avec quelqu’un qui tient ma main pour de vrai.
 
-J’aime la femme que tu es :  
-ta force, ta sensibilité, ta manière de protéger ceux que tu aimes,  
-ta façon de douter de toi alors que tu es bien plus incroyable que tu ne le crois.  
-Tu ne vois pas toujours à quel point tu es belle, à quel point tu es précieuse,  
-mais moi je le vois, chaque jour, dans les petits détails.
+J’aime la femme que tu es : forte et sensible à la fois, belle à l’extérieur comme à l’intérieur, une maman incroyable, une femme qui se relève, qui avance, qui donne sans compter. Tu ne t’en rends pas toujours compte, mais tu es lumineuse. Tu apaises mes tourments, tu rassures mes peurs, tu me fais rire, tu me fais vibrer. Tu es cette évidence que je n’attendais plus.
 
-J’aime aussi ce que nous sommes ensemble : toi, tes filles, mon fils.  
-Nos trois enfants, nos deux histoires, nos vies qui se rejoignent.  
-J’aime imaginer les week-ends tous ensemble, les soirées cinéma, les vacances,  
-les moments simples où l’on se sent juste bien, à la bonne place, à la maison.
+J’aime notre histoire, j’aime nos moments simples, nos fou-rires, nos discussions tard le soir, nos silences où tout est déjà dit. J’aime la façon dont nos corps se cherchent et se complètent, cette connexion charnelle et émotionnelle qui me fait me sentir vivant comme jamais. Avec toi, je me sens à ma place, exactement là où je dois être.
 
-Je ne te promets pas une vie parfaite, mais je te promets quelque chose de vrai :  
-je te choisis, toi.  
-Avec tes forces, tes failles, tes rires, tes larmes, tes silences, tes envies, tes colères parfois.  
-Je choisis notre histoire, même quand ce n’est pas toujours facile,  
-parce que je sais que c’est avec toi que je veux continuer d’avancer.
+J’aime aussi ce que nous sommes en train de créer tous les deux : toi, tes filles, moi et mon fils… nos vies qui s’entremêlent doucement pour former quelque chose de beau, de vrai, de solide. J’ai envie de voir grandir cette grande famille avec toi, de partager les beaux jours comme les plus compliqués, de construire un futur où tu ne doutes jamais de ce que je ressens pour toi.
 
-Merci d’être entrée dans ma vie quand je ne m’y attendais plus.  
-Merci de m’avoir redonné envie d’aimer vraiment.  
-Merci pour ta patience, ton honnêteté, ta tendresse, et tout ce que tu m’apportes sans même t’en rendre compte.
+Je veux que tu saches que je te choisis, chaque jour. Je choisis tes qualités, tes défauts, tes forces, tes fragilités. Je choisis tes rires, tes larmes, tes doutes, tes rêves. Je choisis de t’aimer comme tu le mérites : sincèrement, intensément, sans demi-mesure.
 
-Je t’aime plus que ce que ces mots peuvent exprimer,  
-mais j’espère que cette page, cette chanson et ce cadeau te feront sentir  
-à quel point tu es importante pour moi.
+Merci d’être entrée dans ma vie.
+Merci de m’avoir laissé une place dans la tienne.
+Merci de faire battre mon cœur autrement.
 
-Pour aujourd’hui, pour demain, et pour tout ce qui viendra,  
-je veux marcher à tes côtés.
+Je t’aime plus que ces mots, plus que cette page, plus que cette chanson.
+Je t’aime aujourd’hui, demain, et pour longtemps.
 
-Je t’aime,  
-ton homme. ❤️
+Ton BabyBoy. ❤️
         </div>
       </div>
 
