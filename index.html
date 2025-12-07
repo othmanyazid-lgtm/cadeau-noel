@@ -2,10 +2,23 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Notre histoire – Cadeau</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <title>Notre page d’amour</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg1: #ffe0f1;
+      --bg2: #ffc4e2;
+      --txt: #4b1f33;
+      --accent: #ff6fae;
+      --accent-soft: #ff9fc6;
+      --button-gradient: linear-gradient(135deg, #ff7ab3, #ffb3d5);
+      --shadow-soft: 0 24px 60px rgba(255, 105, 180, 0.35);
+      --radius-xl: 26px;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -13,616 +26,612 @@
     }
 
     body {
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: linear-gradient(135deg, #ffd4f0, #ffe6ff, #ffd1e8);
-      color: #4a2e4e;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       min-height: 100vh;
+      background: radial-gradient(circle at top left, #ffeaf7 0, #ffc4e2 40%, #ffb3d9 70%, #ff9ad0 100%);
+      color: var(--txt);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 16px 50px;
       overflow-x: hidden;
+      position: relative;
     }
 
-    /* Neige en premier plan */
+    main {
+      width: 100%;
+      max-width: 1100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(18px);
+      padding: 32px 24px 34px;
+      margin-bottom: 26px;
+    }
+
+    .title-wrap {
+      text-align: center;
+      margin-bottom: 26px;
+      position: relative;
+    }
+
+    h1 {
+      font-size: clamp(30px, 3.4vw, 38px);
+      margin-bottom: 6px;
+      position: relative;
+      display: inline-block;
+      padding: 8px 26px;
+      border-radius: 999px;
+      background: radial-gradient(circle at top, rgba(255,255,255,0.95), rgba(255,194,218,0.9));
+      box-shadow: 0 0 30px rgba(255, 120, 180, 0.55);
+    }
+
+    /* halo lumineux */
+    h1::before {
+      content: "";
+      position: absolute;
+      inset: -12px;
+      border-radius: inherit;
+      background: radial-gradient(circle, rgba(255,182,213,0.8), transparent 70%);
+      opacity: 0.7;
+      filter: blur(10px);
+      z-index: -1;
+      animation: glow 4s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%,100% { opacity: 0.6; transform: scale(0.98); }
+      50% { opacity: 1; transform: scale(1.03); }
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: #7a3a57;
+    }
+
+    /* Bouton "Découvrir notre histoire" en haut de la page principale */
+    .top-cta {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .cta-button {
+      border: none;
+      outline: none;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      background-image: var(--button-gradient);
+      color: #fff;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      text-decoration: none;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-1px) scale(1.03);
+      box-shadow: 0 30px 70px rgba(255, 105, 180, 0.45);
+    }
+
+    .cta-button span.emoji {
+      font-size: 18px;
+    }
+
+    /* Photos */
+    .photos-section {
+      margin-top: 10px;
+    }
+
+    .photos-title {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 22px;
+    }
+
+    .photos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .photo-card {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.15);
+      background: #f9d4e7;
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      height: auto;         /* pas de recadrage agressif */
+    }
+
+    /* Musique & textes */
+    .section-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title span.emoji {
+      font-size: 20px;
+    }
+
+    audio {
+      width: 100%;
+      margin-bottom: 12px;
+      border-radius: 999px;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 999px;
+      background-image: var(--button-gradient);
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .download-btn span.emoji {
+      font-size: 18px;
+    }
+
+    .texte-box {
+      margin-top: 18px;
+    }
+
+    .texte-label {
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .texte-content {
+      border-radius: 18px;
+      border: 1px dashed rgba(255, 120, 170, 0.45);
+      background: rgba(255,255,255,0.9);
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+    }
+
+    /* QR Code */
+    .qr-section {
+      margin-top: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .qr-section img {
+      width: 220px;
+      height: 220px;
+      border-radius: 20px;
+      background: #fff;
+      padding: 10px;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.15);
+    }
+
+    .qr-caption {
+      font-size: 14px;
+      text-align: center;
+      color: #6b3150;
+    }
+
+    /* Neige avant-plan */
     #snow-canvas {
       position: fixed;
       inset: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
-      z-index: 9998;
+      z-index: 3;
+    }
+
+    /* Cœur animé sur la page principale */
+    .floating-heart-main {
+      position: fixed;
+      right: 26px;
+      bottom: 26px;
+      font-size: 40px;
+      animation: floatHeart 7s ease-in-out infinite;
+      z-index: 4;
+      filter: drop-shadow(0 10px 30px rgba(255, 87, 160, 0.55));
+    }
+
+    @keyframes floatHeart {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+      25% { transform: translate(-10px, -20px) scale(1.08); opacity: 1; }
+      50% { transform: translate(6px, -40px) scale(1); opacity: 0.9; }
+      75% { transform: translate(-4px, -22px) scale(1.05); opacity: 1; }
+      100% { transform: translate(0, 0) scale(1); opacity: 0.7; }
     }
 
     /* Overlay mot de passe */
     .password-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.4);
+      background: radial-gradient(circle at top, rgba(255,235,248,0.97), rgba(255,179,214,0.96));
       display: flex;
-      align-items: center;
       justify-content: center;
-      z-index: 10000;
+      align-items: center;
+      z-index: 10;
     }
 
-    .password-box {
-      background: #ffe8f4;
-      padding: 24px 28px;
-      border-radius: 18px;
-      box-shadow: 0 18px 40px rgba(201, 91, 133, 0.35);
+    .password-card {
+      background: rgba(255,255,255,0.95);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      padding: 28px 24px 26px;
+      max-width: 360px;
+      width: 92%;
       text-align: center;
-      max-width: 320px;
-      width: 90%;
-      border: 1px solid rgba(255, 255, 255, 0.7);
     }
 
-    .password-box h2 {
-      margin-bottom: 10px;
-      font-size: 1.4rem;
+    .password-card h2 {
+      font-size: 22px;
+      margin-bottom: 6px;
     }
 
-    .password-box p {
-      margin-bottom: 16px;
-      font-size: 0.95rem;
+    .password-card p {
+      font-size: 14px;
+      margin-bottom: 18px;
+      color: #7a3a57;
     }
 
-    .password-box input {
+    .password-card input {
       width: 100%;
       padding: 10px 12px;
       border-radius: 999px;
-      border: 1px solid #f7b4d6;
+      border: 1px solid #ffc0dd;
       outline: none;
-      font-size: 1rem;
+      font-size: 14px;
       text-align: center;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
-    .password-box button {
-      background: linear-gradient(135deg, #ff8fb5, #ff6c9f);
+    .password-card button {
       border: none;
-      color: #fff;
-      padding: 10px 18px;
+      outline: none;
+      padding: 9px 18px;
       border-radius: 999px;
-      font-size: 0.95rem;
+      font-size: 14px;
+      font-weight: 600;
+      background-image: var(--button-gradient);
+      color: #fff;
       cursor: pointer;
-      box-shadow: 0 8px 18px rgba(255, 102, 153, 0.55);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .password-box button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(255, 102, 153, 0.65);
+      box-shadow: var(--shadow-soft);
     }
 
     .password-error {
-      color: #e63946;
-      font-size: 0.9rem;
-      min-height: 1.2em;
-    }
-
-    /* Coeur animé */
-    .floating-heart {
-      position: fixed;
-      right: 26px;
-      bottom: 40px;
-      font-size: 2.3rem;
-      z-index: 9999;
-      animation: floatHeart 4s ease-in-out infinite;
-      pointer-events: none;
-    }
-
-    @keyframes floatHeart {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 0.9;
-      }
-      50% {
-        transform: translateY(-18px) scale(1.08);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(0) scale(1);
-        opacity: 0.9;
-      }
-    }
-
-    /* Contenu principal */
-    .main-wrapper {
-      padding: 40px 16px 60px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .card {
-      background: rgba(255, 245, 250, 0.96);
-      border-radius: 24px;
-      max-width: 900px;
-      width: 100%;
-      padding: 28px 22px 30px;
-      box-shadow: 0 16px 40px rgba(191, 90, 136, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.4), transparent 60%),
-                  radial-gradient(circle at bottom right, rgba(255, 191, 216, 0.35), transparent 55%);
-      opacity: 0.9;
-      z-index: 0;
-    }
-
-    .card-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Titre principal avec halo lumineux */
-    .main-title {
-      font-size: 1.6rem;
-      text-align: center;
-      margin-bottom: 12px;
-      position: relative;
-      animation: titleGlow 2.4s ease-in-out infinite;
-    }
-
-    @keyframes titleGlow {
-      0% {
-        text-shadow: 0 0 6px rgba(255, 183, 215, 0.4),
-                     0 0 18px rgba(255, 122, 171, 0.45);
-      }
-      50% {
-        text-shadow: 0 0 10px rgba(255, 213, 236, 0.9),
-                     0 0 26px rgba(255, 134, 186, 0.9);
-      }
-      100% {
-        text-shadow: 0 0 6px rgba(255, 183, 215, 0.4),
-                     0 0 18px rgba(255, 122, 171, 0.45);
-      }
-    }
-
-    .main-subtitle {
-      text-align: center;
-      font-size: 1rem;
-      margin-bottom: 22px;
-    }
-
-    /* Galerie photos 3 / 3 / 1 juste sous le titre */
-    .photos-section {
-      margin-top: 4px;
-      margin-bottom: 24px;
-    }
-
-    .photos-title {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    .photos-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .photos-row {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      width: 100%;
-      flex-wrap: wrap;
-    }
-
-    .photos-row img {
-      border-radius: 16px;
-      object-fit: cover;
-      height: 140px;
-      box-shadow: 0 10px 20px rgba(189, 85, 138, 0.35);
-    }
-
-    .photos-row.row-1 img,
-    .photos-row.row-2 img {
-      flex: 1 1 30%;
-      max-width: 30%;
-    }
-
-    .photos-row.row-3 img {
-      flex: 0 0 auto;
-      width: 40%;
-      max-width: 260px;
-    }
-
-    @media (max-width: 768px) {
-      .photos-row.row-1 img,
-      .photos-row.row-2 img {
-        max-width: 31%;
-      }
-      .photos-row.row-3 img {
-        width: 70%;
-      }
-    }
-
-    @media (max-width: 580px) {
-      .photos-row.row-1 img,
-      .photos-row.row-2 img {
-        max-width: 48%;
-        height: 130px;
-      }
-      .photos-row.row-3 img {
-        width: 80%;
-        height: 160px;
-      }
-    }
-
-    /* Audio */
-    .audio-section {
-      margin-bottom: 20px;
-    }
-
-    .audio-label {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-      font-size: 0.97rem;
-    }
-
-    .audio-label span {
-      font-size: 1.2rem;
-    }
-
-    audio {
-      width: 100%;
-      border-radius: 999px;
-      background-color: #f9dde9;
-    }
-
-    .download-btn {
       margin-top: 10px;
+      font-size: 13px;
+      color: #d02555;
+      min-height: 18px;
     }
 
-    .download-btn a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      background: linear-gradient(135deg, #ff8fb5, #ff6c9f);
-      color: #fff;
-      padding: 9px 18px;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      box-shadow: 0 8px 18px rgba(255, 102, 153, 0.55);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    @media (max-width: 900px) {
+      .photos-grid {
+        gap: 16px;
+      }
     }
 
-    .download-btn a:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(255, 102, 153, 0.65);
-    }
-
-    /* Sections texte – pas de gros blocs blancs opaques */
-    .section-title {
-      font-size: 1.2rem;
-      margin: 22px 0 8px;
-    }
-
-    .text-box {
-      border-radius: 16px;
-      padding: 14px 16px;
-      border: 1px dashed #ffb2ca;
-      font-size: 0.96rem;
-      line-height: 1.7;
-      white-space: pre-line;
-      background: rgba(255, 248, 252, 0.7); /* léger rose transparent */
-    }
-
-    /* QR Code centré */
-    .qr-section {
-      margin-top: 26px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      text-align: center;
-    }
-
-    .qr-section img {
-      width: 180px;
-      height: 180px;
-      object-fit: contain;
-      border-radius: 12px;
-      background: #fff;
-      padding: 6px;
-      box-shadow: 0 8px 18px rgba(191, 90, 136, 0.3);
-    }
-
-    .qr-section span {
-      font-size: 0.98rem;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.8rem;
-      margin: 24px 0 10px;
-      opacity: 0.8;
+    @media (max-width: 700px) {
+      body {
+        padding: 24px 10px 30px;
+      }
+      .card {
+        padding: 22px 16px 24px;
+      }
+      .photos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .floating-heart-main {
+        font-size: 32px;
+        right: 16px;
+        bottom: 16px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Neige -->
   <canvas id="snow-canvas"></canvas>
 
-  <!-- Coeur animé -->
-  <div class="floating-heart">💖</div>
-
-  <!-- Mot de passe -->
+  <!-- Overlay mot de passe -->
   <div class="password-overlay" id="passwordOverlay">
-    <div class="password-box">
-      <h2>✨ Cadeau secret ✨</h2>
-      <p>Entre le code que toi seule peux connaître 💌</p>
+    <div class="password-card">
+      <h2>Code secret 💌</h2>
+      <p>Entre le mot de passe que nous seuls connaissons pour ouvrir notre page d’amour.</p>
       <input type="password" id="passwordInput" placeholder="Mot de passe" />
       <button id="passwordButton">Ouvrir la page</button>
       <div class="password-error" id="passwordError"></div>
     </div>
   </div>
 
-  <!-- Contenu principal -->
-  <div class="main-wrapper" id="mainContent">
+  <main>
     <div class="card">
-      <div class="card-content">
-        <h1 class="main-title">Quand nos mondes se touchent 💫</h1>
-        <p class="main-subtitle">Notre chanson, nos mots, nos souvenirs… juste pour nous deux.</p>
-
-        <!-- Photos AU DÉBUT de la page -->
-        <div class="photos-section">
-          <h2 class="photos-title">Nos souvenirs 📸</h2>
-          <div class="photos-grid">
-            <div class="photos-row row-1">
-              <img src="images/photo1.jpg" alt="Souvenir 1" />
-              <img src="images/photo2.jpg" alt="Souvenir 2" />
-              <img src="images/photo3.jpg" alt="Souvenir 3" />
-            </div>
-            <div class="photos-row row-2">
-              <img src="images/photo4.jpg" alt="Souvenir 4" />
-              <img src="images/photo5.jpg" alt="Souvenir 5" />
-              <img src="images/photo6.jpg" alt="Souvenir 6" />
-            </div>
-            <div class="photos-row row-3">
-              <img src="images/photo7.jpg" alt="Souvenir 7" />
-            </div>
-          </div>
+      <div class="title-wrap">
+        <h1>Quand nos mondes se touchent</h1>
+        <p class="subtitle">Une page pour toi, pour nous, pour tout l’amour que je ressens. 💖</p>
+        <div class="top-cta">
+          <button class="cta-button" onclick="document.getElementById('music').scrollIntoView({behavior:'smooth'})">
+            <span class="emoji">🎧</span>
+            <span>Découvrir notre histoire en musique</span>
+          </button>
         </div>
+      </div>
 
-        <!-- Audio -->
-        <div class="audio-section">
-          <div class="audio-label">
-            <span>🎧</span> <strong>Clique pour écouter :</strong>
-          </div>
-          <audio id="audioPlayer" controls>
-            <source src="audio/mon-amour.mp3" type="audio/mpeg" />
-            Ton navigateur ne supporte pas l’élément audio.
-          </audio>
-          <div class="download-btn">
-            <a href="audio/mon-amour.mp3" download="Quand_nos_mondes_se_touchent.mp3">
-              ⬇️ Télécharger la chanson
-            </a>
-          </div>
+      <!-- Section photos au début de la page -->
+      <section class="photos-section">
+        <h2 class="photos-title">Nos souvenirs 📸</h2>
+        <div class="photos-grid">
+          <div class="photo-card"><img src="images/photo1.jpg" alt="Souvenir 1"></div>
+          <div class="photo-card"><img src="images/photo2.jpg" alt="Souvenir 2"></div>
+          <div class="photo-card"><img src="images/photo3.jpg" alt="Souvenir 3"></div>
+          <div class="photo-card"><img src="images/photo4.jpg" alt="Souvenir 4"></div>
+          <div class="photo-card"><img src="images/photo5.jpg" alt="Souvenir 5"></div>
+          <div class="photo-card"><img src="images/photo6.jpg" alt="Souvenir 6"></div>
+          <div class="photo-card"><img src="images/photo7.jpg" alt="Souvenir 7"></div>
         </div>
+      </section>
+    </div>
 
-        <!-- Paroles -->
-        <h2 class="section-title">Paroles</h2>
-        <div class="text-box" id="lyricsBox">
-🎶On s’est croisés comme un hasard qui insiste, 
-Deux cœurs un peu cabossés, un peu tristes.
-Puis ton sourire est venu bousculer ma nuit,
+    <!-- Musique + paroles + lettre -->
+    <div class="card" id="music">
+      <h2 class="section-title">
+        <span class="emoji">🎶</span>
+        <span>Notre chanson</span>
+      </h2>
+
+      <audio id="loveAudio" controls>
+        <source src="audio/mon-amour.mp3" type="audio/mpeg">
+        Ton navigateur ne supporte pas la lecture audio.
+      </audio>
+
+      <a class="download-btn" href="audio/mon-amour.mp3" download="Notre_chanson_pour_toi.mp3">
+        <span class="emoji">⬇️</span>
+        <span>Télécharger la chanson</span>
+      </a>
+
+      <div class="texte-box">
+        <div class="texte-label">Paroles de notre chanson 💬</div>
+        <div class="texte-content">
+🎶 On s’est croisés comme un hasard qui insiste,  
+Deux cœurs un peu cabossés, un peu tristes.  
+Puis ton sourire est venu bousculer ma nuit,  
 Comme une lumière douce qui revient sans bruit.
 
-J’avais perdu la couleur des sentiments,
-Tu m’as ramené la chaleur d’avant.
-Et dans ton regard, j’ai compris d’un coup,
+J’avais perdu la couleur des sentiments,  
+Tu m’as ramené la chaleur d’avant.  
+Et dans ton regard, j’ai compris d’un coup,  
 Que mon histoire… pouvait recommencer avec nous.
 
-Et tu m’as redonné la force d’avancer,
-Effacé mes peurs, mes envies d’abandonner.
-Deux âmes blessées qui se réparent,
+Et tu m’as redonné la force d’avancer,  
+Effacé mes peurs, mes envies d’abandonner.  
+Deux âmes blessées qui se réparent,  
 Deux souffles qui battent quelque part…
 
-Quand nos mondes se touchent,
-Le temps devient plus doux.
-Ton « je t’aime » dans ma bouche,
+Quand nos mondes se touchent,  
+Le temps devient plus doux.  
+Ton « je t’aime » dans ma bouche,  
 C’est une flamme au fond de nous.
 
-Ta peau fraîche sur ma peau chaude,
-Nos deux corps qui se décodent.
-C’est un amour qu’on ne contrôle pas,
-Quand nos mondes…
+Ta peau fraîche sur ma peau chaude,  
+Nos deux corps qui se décodent.  
+C’est un amour qu’on ne contrôle pas,  
+Quand nos mondes…  
 Quand nos mondes se touchent comme ça.
 
-Tes yeux verts m’emmènent ailleurs,
-Un océan calme, un éclat de chaleur.
-La plus belle femme que j’ai rencontrée,
+Tes yeux verts m’emmènent ailleurs,  
+Un océan calme, un éclat de chaleur.  
+La plus belle femme que j’ai rencontrée,  
 Tu fais battre mon cœur en liberté.
 
-Tes filles, mon fils, nos vies qui s’accordent,
-Un futur qui s’ouvre, un bonheur qui déborde.
-Et quand nos corps se frôlent doucement,
-On fusionne…
+Tes filles, mon fils, nos vies qui s’accordent,  
+Un futur qui s’ouvre, un bonheur qui déborde.  
+Et quand nos corps se frôlent doucement,  
+On fusionne…  
 comme deux âmes dans le vent.
 
-Dans tes bras, tout devient clair,
-Le bruit du monde devient léger dans l’air.
-Tu es ma paix, tu es mon feu,
+Dans tes bras, tout devient clair,  
+Le bruit du monde devient léger dans l’air.  
+Tu es ma paix, tu es mon feu,  
 Tu es le chemin de tous mes vœux.
 
-Quand nos mondes se touchent,
-Le temps devient plus doux.
-Ton « je t’aime » dans ma bouche,
+Quand nos mondes se touchent,  
+Le temps devient plus doux.  
+Ton « je t’aime » dans ma bouche,  
 C’est une flamme au fond de nous.
 
-Ta peau fraîche sur ma peau chaude,
-Nos deux corps qui se décodent.
-C’est un amour qu’on ne contrôle pas,
-Quand nos mondes…
+Ta peau fraîche sur ma peau chaude,  
+Nos deux corps qui se décodent.  
+C’est un amour qu’on ne contrôle pas,  
+Quand nos mondes…  
 Quand nos mondes se touchent comme ça.
 
-Quand tu respires près de moi,
-Je sens tout ce que l’amour a de vrai.
-Tu es forte, tu mérites la joie,
+Quand tu respires près de moi,  
+Je sens tout ce que l’amour a de vrai.  
+Tu es forte, tu mérites la joie,  
 Laisse-moi t’aimer comme jamais.
 
-Je le sais au fond de ma voix,
-Tu es la femme de ma vie…
+Je le sais au fond de ma voix,  
+Tu es la femme de ma vie…  
 celle que je choisis.
 
-Quand nos mondes se touchent,
-Je deviens un homme nouveau.
-Quand ton cœur me chuchote,
+Quand nos mondes se touchent,  
+Je deviens un homme nouveau.  
+Quand ton cœur me chuchote,  
 J’entends brûler nos deux peaux.
 
-Ta peau fraîche sur ma peau chaude,
-Nos deux cœurs qui se répondent.
-Et plus les jours passent, plus je vois
-Que nos mondes…
-nos mondes
+Ta peau fraîche sur ma peau chaude,  
+Nos deux cœurs qui se répondent.  
+Et plus les jours passent, plus je vois  
+Que nos mondes…  
+nos mondes  
 se touchent à chaque fois. 🎶
         </div>
+      </div>
 
-        <!-- Lettre d’amour (nouvelle version conservée) -->
-        <h2 class="section-title">Lettre d’amour</h2>
-        <div class="text-box" id="loveLetterBox">
+      <div class="texte-box" style="margin-top:20px;">
+        <div class="texte-label">Lettre d’amour 💌</div>
+        <div class="texte-content">
 Mon amour,
 
-Je repense souvent à la façon dont tout a commencé entre nous. On ne s’attendait à rien, on ne cherchait rien… et pourtant, nos chemins se sont croisés comme si la vie avait décidé que c’était enfin notre moment. Deux cœurs un peu abîmés, un peu fatigués, qui n’avaient plus vraiment confiance en l’amour, et qui pourtant se sont reconnus tout de suite.
+Quand je repense à la façon dont tout a commencé, j’ai toujours l’impression de rêver.  
+On ne cherchait plus vraiment l’amour, on avait déjà encaissé assez de déceptions.  
+Et pourtant… nos chemins se sont croisés comme si la vie avait décidé de nous offrir une seconde chance.
 
-Avec toi, tout a changé. Ton sourire, ton regard, ta façon de me parler, de me comprendre sans que j’aie besoin de tout expliquer… Tu as rallumé en moi quelque chose que je croyais éteint. Tu m’as redonné envie d’aimer, d’y croire, de construire. À tes côtés, je n’ai plus l’impression de me battre contre la vie, mais de marcher avec quelqu’un qui tient ma main pour de vrai.
+Avec toi, tout a pris une autre couleur.  
+Ton sourire, ta façon de me regarder, ta voix quand tu me parles avec douceur…  
+tout ça a rallumé quelque chose en moi que je croyais éteint.  
+Tu as apaisé mes blessures, tu m’as redonné envie d’y croire, envie d’avancer, envie de construire.
 
-J’aime la femme que tu es : forte et sensible à la fois, belle à l’extérieur comme à l’intérieur, une maman incroyable, une femme qui se relève, qui avance, qui donne sans compter. Tu ne t’en rends pas toujours compte, mais tu es lumineuse. Tu apaises mes tourments, tu rassures mes peurs, tu me fais rire, tu me fais vibrer. Tu es cette évidence que je n’attendais plus.
+J’aime la femme que tu es : forte, sensible, drôle, entière.  
+J’aime tes yeux qui brillent quand tu ris, ta façon de prendre soin de ceux que tu aimes,  
+ta capacité à tout donner même quand tu doutes de toi.  
+Tu ne t’en rends pas toujours compte, mais tu es une femme incroyable.
 
-J’aime notre histoire, j’aime nos moments simples, nos fou-rires, nos discussions tard le soir, nos silences où tout est déjà dit. J’aime la façon dont nos corps se cherchent et se complètent, cette connexion charnelle et émotionnelle qui me fait me sentir vivant comme jamais. Avec toi, je me sens à ma place, exactement là où je dois être.
+J’aime aussi ce que nous formons ensemble :  
+toi, tes filles, mon fils, nos histoires qui se mêlent, nos projets qui se dessinent.  
+J’aime imaginer les années à venir à tes côtés, les matins tranquilles,  
+les soirées à rire, les vacances en famille, les petites choses du quotidien  
+qui, avec toi, prennent une valeur immense.
 
-J’aime aussi ce que nous sommes en train de créer tous les deux : toi, tes filles, moi et mon fils… nos vies qui s’entremêlent doucement pour former quelque chose de beau, de vrai, de solide. J’ai envie de voir grandir cette grande famille avec toi, de partager les beaux jours comme les plus compliqués, de construire un futur où tu ne doutes jamais de ce que je ressens pour toi.
+Je veux que tu saches une chose très simple :  
+je te choisis.  
+Aujourd’hui, demain, et tous les jours qui suivront.  
+Je choisis ton sourire, tes défauts, tes forces, tes fragilités.  
+Je choisis cette vie avec toi, avec nous, avec nos enfants.
 
-Je veux que tu saches que je te choisis, chaque jour. Je choisis tes qualités, tes défauts, tes forces, tes fragilités. Je choisis tes rires, tes larmes, tes doutes, tes rêves. Je choisis de t’aimer comme tu le mérites : sincèrement, intensément, sans demi-mesure.
+Merci d’être entrée dans ma vie,  
+merci d’être devenue ma lumière, ma paix et mon évidence.
 
-Merci d’être entrée dans ma vie.
-Merci de m’avoir laissé une place dans la tienne.
-Merci de faire battre mon cœur autrement.
+Je t’aime plus que je ne saurai jamais le dire avec des mots,  
+mais j’espère que cette page, cette chanson et tout ce que je fais pour toi  
+te montreront à quel point tu comptes pour moi.
 
-Je t’aime plus que ces mots, plus que cette page, plus que cette chanson.
-Je t’aime aujourd’hui, demain, et pour longtemps.
-
-Ton amoureux. ❤️
+Pour toujours,  
+ton homme. ❤️
         </div>
+      </div>
 
-        <!-- QR Code centré -->
-        <div class="qr-section">
-          <img src="images/qr-code.png" alt="QR Code vers cette page" />
-          <span>📱 Scanne ce QR Code pour ouvrir directement notre page d’amour.</span>
+      <div class="qr-section">
+        <img
+          src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fothmanyazid-lgtm.github.io%2Fcadeau-noel%2F"
+          alt="QR Code vers cette page">
+        <div class="qr-caption">
+          Scanne ce QR Code pour ouvrir directement notre page d’amour.<br>
+          Tu pourras le glisser dans un paquet cadeau. 🎁
         </div>
       </div>
     </div>
-  </div>
+  </main>
 
-  <footer>
-    Fait avec tout mon amour, juste pour toi ❤️
-  </footer>
+  <div class="floating-heart-main">💖</div>
 
   <script>
-    // Mot de passe
-    (function () {
-      const PASSWORD = "AOFAE";
-      const overlay = document.getElementById("passwordOverlay");
-      const input = document.getElementById("passwordInput");
-      const button = document.getElementById("passwordButton");
-      const error = document.getElementById("passwordError");
+    // Neige avant-plan
+    const canvas = document.getElementById('snow-canvas');
+    const ctx = canvas.getContext('2d');
+    let flakes = [];
 
-      function checkPassword() {
-        if (input.value.trim() === PASSWORD) {
-          overlay.style.display = "none";
-        } else {
-          error.textContent = "Oups… ce n’est pas le bon code ❤️";
-        }
-      }
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
 
-      button.addEventListener("click", checkPassword);
-      input.addEventListener("keydown", function (e) {
-        if (e.key === "Enter") {
-          checkPassword();
-        }
+    for (let i = 0; i < 190; i++) {
+      flakes.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2.3 + 0.7,
+        d: Math.random() * 1 + 0.5
       });
-    })();
+    }
 
-    // Autoplay après première interaction
-    (function () {
-      const audio = document.getElementById("audioPlayer");
-      let hasStarted = false;
-
-      function tryPlay() {
-        if (hasStarted) return;
-        hasStarted = true;
-        audio.play().catch(() => {});
-        document.removeEventListener("click", tryPlay);
+    function drawSnow() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'rgba(255,255,255,0.9)';
+      ctx.beginPath();
+      for (let i = 0; i < flakes.length; i++) {
+        const f = flakes[i];
+        ctx.moveTo(f.x, f.y);
+        ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
       }
+      ctx.fill();
+      updateSnow();
+      requestAnimationFrame(drawSnow);
+    }
 
-      document.addEventListener("click", tryPlay);
-    })();
+    let angle = 0;
+    function updateSnow() {
+      angle += 0.0015;
+      for (let i = 0; i < flakes.length; i++) {
+        const f = flakes[i];
+        f.y += Math.cos(angle + f.d) + 0.4 + f.d * 0.8;
+        f.x += Math.sin(angle) * 0.3;
 
-    // Neige
-    (function () {
-      const canvas = document.getElementById("snow-canvas");
-      const ctx = canvas.getContext("2d");
-      let width, height;
-      let flakes = [];
-
-      function resize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-      }
-
-      window.addEventListener("resize", resize);
-      resize();
-
-      const FLAKE_COUNT = 130;
-
-      function createFlake() {
-        return {
-          x: Math.random() * width,
-          y: Math.random() * height,
-          r: Math.random() * 2.2 + 0.8,
-          d: Math.random() * 1.3 + 0.4,
-        };
-      }
-
-      for (let i = 0; i < FLAKE_COUNT; i++) {
-        flakes.push(createFlake());
-      }
-
-      function draw() {
-        ctx.clearRect(0, 0, width, height);
-        ctx.fillStyle = "rgba(255,255,255,0.95)";
-        ctx.beginPath();
-        for (let i = 0; i < flakes.length; i++) {
-          const f = flakes[i];
-          ctx.moveTo(f.x, f.y);
-          ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
-        }
-        ctx.fill();
-        update();
-        requestAnimationFrame(draw);
-      }
-
-      function update() {
-        for (let i = 0; i < flakes.length; i++) {
-          const f = flakes[i];
-          f.y += Math.pow(f.d, 1.6);
-          f.x += Math.sin(f.y * 0.015) * 0.5;
-
-          if (f.y > height + 5) {
-            flakes[i] = createFlake();
-            flakes[i].y = -5;
-          }
+        if (f.y > canvas.height) {
+          flakes[i] = {
+            x: Math.random() * canvas.width,
+            y: -5,
+            r: f.r,
+            d: f.d
+          };
         }
       }
+    }
+    drawSnow();
 
-      draw();
-    })();
+    // Gestion mot de passe AOFAE + lecture audio
+    const overlay = document.getElementById('passwordOverlay');
+    const input = document.getElementById('passwordInput');
+    const btn = document.getElementById('passwordButton');
+    const error = document.getElementById('passwordError');
+    const audio = document.getElementById('loveAudio');
+
+    function checkPassword() {
+      const value = (input.value || "").trim();
+      if (value === "AOFAE") {
+        overlay.style.display = "none";
+        error.textContent = "";
+        // essaie de lancer la musique après interaction utilisateur
+        try { audio.play(); } catch(e) {}
+      } else {
+        error.textContent = "Oups, ce n’est pas le bon code. Essaie encore mon amour. 💗";
+      }
+    }
+
+    btn.addEventListener('click', checkPassword);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === "Enter") {
+        checkPassword();
+      }
+    });
   </script>
 </body>
 </html>
