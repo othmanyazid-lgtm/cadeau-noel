@@ -28,7 +28,7 @@
       position: relative;
     }
 
-    /* --- Fond de neige --- */
+    /* --- Fond de neige (points blancs) --- */
     .snow-container {
       pointer-events: none;
       position: fixed;
@@ -40,11 +40,13 @@
     .snowflake {
       position: absolute;
       top: -10px;
-      font-size: 12px;
-      opacity: 0.8;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.95);
+      opacity: 0.9;
       animation-name: fall;
       animation-timing-function: linear;
       animation-iteration-count: infinite;
+      box-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
     }
 
     @keyframes fall {
@@ -97,15 +99,22 @@
       text-align: center;
       font-size: 0.95rem;
       opacity: 0.85;
+      margin-bottom: 8px;
+    }
+
+    .hearts-row {
+      text-align: center;
+      font-size: 1.6rem;
       margin-bottom: 20px;
     }
 
-    /* --- Grille photos --- */
+    /* --- Grille photos : 3 / 3 / 1 centrée --- */
     .photos-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(3, minmax(140px, 1fr));
       gap: 10px;
       margin-bottom: 20px;
+      justify-items: center;
     }
 
     .photos-grid img {
@@ -114,6 +123,11 @@
       object-fit: cover;
       max-height: 200px;
       border: 2px solid rgba(255, 182, 193, 0.7);
+    }
+
+    /* 7ème photo centrée sur la 3ème ligne */
+    .photos-grid img:nth-child(7) {
+      grid-column: 2;
     }
 
     /* --- Boutons --- */
@@ -367,6 +381,8 @@
         flex-direction: column;
         align-items: stretch;
       }
+      /* en mobile on laisse le grid gérer comme il peut,
+         pas besoin de changer la logique 3/3/1 */
     }
   </style>
 </head>
@@ -418,8 +434,9 @@
       <p class="subtitle">
         Une chanson, des souvenirs, et tout l’amour que j’ai pour toi.
       </p>
+      <div class="hearts-row">💖 💕 💗</div>
 
-      <!-- 7 photos -->
+      <!-- 7 photos, 3 / 3 / 1 centrée -->
       <div class="photos-grid">
         <!-- Adapte les chemins d’images à tes fichiers réels -->
         <img src="images/photo1.jpg" alt="Nous deux 1" />
@@ -535,7 +552,7 @@ se touchent à chaque fois.
         </p>
       </div>
 
-      <!-- Lettre d'amour -->
+      <!-- Lettre d’amour -->
       <h2>Lettre d’amour</h2>
       <div class="letter">
         <div class="letter-header">
@@ -581,18 +598,20 @@ se touchent à chaque fois.
   <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 
   <script>
-    // --- Neige ---
+    // --- Neige : points blancs plus nombreux, tailles variées ---
     function createSnow() {
       const container = document.getElementById("snow-container");
-      const flakes = 70;
+      const flakes = 120; // plus nombreux
       for (let i = 0; i < flakes; i++) {
         const span = document.createElement("div");
         span.className = "snowflake";
-        span.textContent = "❄";
+        const size = 3 + Math.random() * 6; // tailles différentes
+        span.style.width = size + "px";
+        span.style.height = size + "px";
         span.style.left = Math.random() * 100 + "vw";
         span.style.animationDuration = 8 + Math.random() * 8 + "s";
         span.style.animationDelay = Math.random() * 10 + "s";
-        span.style.fontSize = 8 + Math.random() * 10 + "px";
+        span.style.opacity = 0.5 + Math.random() * 0.5;
         container.appendChild(span);
       }
     }
