@@ -157,7 +157,12 @@
     .photo-card img {
       display: block;
       width: 100%;
-      height: auto;         /* pas de recadrage agressif */
+      height: auto;
+    }
+
+    /* 7ème photo centrée (3 / 3 / 1) */
+    .photo-card.last-photo {
+      grid-column: 2 / 3;
     }
 
     /* Musique & textes */
@@ -348,6 +353,11 @@
       .photos-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+      .photo-card.last-photo {
+        grid-column: 1 / -1;
+        justify-self: center;
+        max-width: 260px;
+      }
       .floating-heart-main {
         font-size: 32px;
         right: 16px;
@@ -393,7 +403,7 @@
           <div class="photo-card"><img src="images/photo4.jpg" alt="Souvenir 4"></div>
           <div class="photo-card"><img src="images/photo5.jpg" alt="Souvenir 5"></div>
           <div class="photo-card"><img src="images/photo6.jpg" alt="Souvenir 6"></div>
-          <div class="photo-card"><img src="images/photo7.jpg" alt="Souvenir 7"></div>
+          <div class="photo-card last-photo"><img src="images/photo7.jpg" alt="Souvenir 7"></div>
         </div>
       </section>
     </div>
@@ -499,40 +509,44 @@ se touchent à chaque fois. 🎶
         <div class="texte-content">
 Mon amour,
 
-Quand je repense à la façon dont tout a commencé, j’ai toujours l’impression de rêver.  
-On ne cherchait plus vraiment l’amour, on avait déjà encaissé assez de déceptions.  
-Et pourtant… nos chemins se sont croisés comme si la vie avait décidé de nous offrir une seconde chance.
+Quand nos chemins se sont croisés, aucun de nous deux n’était vraiment prêt pour une nouvelle histoire.  
+On sortait de relations compliquées, on portait encore des traces, des doutes, des peurs.  
+Et pourtant, malgré tout ça, quelque chose en nous a accepté de s’ouvrir à nouveau.
 
-Avec toi, tout a pris une autre couleur.  
-Ton sourire, ta façon de me regarder, ta voix quand tu me parles avec douceur…  
-tout ça a rallumé quelque chose en moi que je croyais éteint.  
-Tu as apaisé mes blessures, tu m’as redonné envie d’y croire, envie d’avancer, envie de construire.
+Avec toi, j’ai découvert un amour différent.  
+Un amour qui ne joue pas, qui ne ment pas, qui ne promet pas pour rien.  
+Un amour qui rassure, qui apaise et qui redonne envie de construire.  
+Ton sourire, ta voix, ta façon de me regarder… tout ça a rallumé une lumière que je croyais éteinte en moi.
 
-J’aime la femme que tu es : forte, sensible, drôle, entière.  
-J’aime tes yeux qui brillent quand tu ris, ta façon de prendre soin de ceux que tu aimes,  
-ta capacité à tout donner même quand tu doutes de toi.  
-Tu ne t’en rends pas toujours compte, mais tu es une femme incroyable.
+J’aime la femme que tu es :  
+ta force, ta sensibilité, ta manière de protéger ceux que tu aimes,  
+ta façon de douter de toi alors que tu es bien plus incroyable que tu ne le crois.  
+Tu ne vois pas toujours à quel point tu es belle, à quel point tu es précieuse,  
+mais moi je le vois, chaque jour, dans les petits détails.
 
-J’aime aussi ce que nous formons ensemble :  
-toi, tes filles, mon fils, nos histoires qui se mêlent, nos projets qui se dessinent.  
-J’aime imaginer les années à venir à tes côtés, les matins tranquilles,  
-les soirées à rire, les vacances en famille, les petites choses du quotidien  
-qui, avec toi, prennent une valeur immense.
+J’aime aussi ce que nous sommes ensemble : toi, tes filles, mon fils.  
+Nos trois enfants, nos deux histoires, nos vies qui se rejoignent.  
+J’aime imaginer les week-ends tous ensemble, les soirées cinéma, les vacances,  
+les moments simples où l’on se sent juste bien, à la bonne place, à la maison.
 
-Je veux que tu saches une chose très simple :  
-je te choisis.  
-Aujourd’hui, demain, et tous les jours qui suivront.  
-Je choisis ton sourire, tes défauts, tes forces, tes fragilités.  
-Je choisis cette vie avec toi, avec nous, avec nos enfants.
+Je ne te promets pas une vie parfaite, mais je te promets quelque chose de vrai :  
+je te choisis, toi.  
+Avec tes forces, tes failles, tes rires, tes larmes, tes silences, tes envies, tes colères parfois.  
+Je choisis notre histoire, même quand ce n’est pas toujours facile,  
+parce que je sais que c’est avec toi que je veux continuer d’avancer.
 
-Merci d’être entrée dans ma vie,  
-merci d’être devenue ma lumière, ma paix et mon évidence.
+Merci d’être entrée dans ma vie quand je ne m’y attendais plus.  
+Merci de m’avoir redonné envie d’aimer vraiment.  
+Merci pour ta patience, ton honnêteté, ta tendresse, et tout ce que tu m’apportes sans même t’en rendre compte.
 
-Je t’aime plus que je ne saurai jamais le dire avec des mots,  
-mais j’espère que cette page, cette chanson et tout ce que je fais pour toi  
-te montreront à quel point tu comptes pour moi.
+Je t’aime plus que ce que ces mots peuvent exprimer,  
+mais j’espère que cette page, cette chanson et ce cadeau te feront sentir  
+à quel point tu es importante pour moi.
 
-Pour toujours,  
+Pour aujourd’hui, pour demain, et pour tout ce qui viendra,  
+je veux marcher à tes côtés.
+
+Je t’aime,  
 ton homme. ❤️
         </div>
       </div>
@@ -619,7 +633,6 @@ ton homme. ❤️
       if (value === "AOFAE") {
         overlay.style.display = "none";
         error.textContent = "";
-        // essaie de lancer la musique après interaction utilisateur
         try { audio.play(); } catch(e) {}
       } else {
         error.textContent = "Oups, ce n’est pas le bon code. Essaie encore mon amour. 💗";
